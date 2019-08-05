@@ -1,0 +1,54 @@
+scripts
+*.py[cod]
+
+# C extensions
+*.so
+cortex/formats.c
+cortex/openctm.c
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Cached files in filestore
+# NOTE: the filestore really should never be in the git repo... Needs work.
+filestore/db/*/cache
+filestore/db/*/surface-info
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# OS X bullshit
+.DS_store
+
+# vim temp files
+*~
+
+# vscode
+.vscode
+
+*.nfs*
