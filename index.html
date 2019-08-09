@@ -57364,6 +57364,7 @@ viewer.ui.add({PCA6:{action:function() {switchOverlay("pca6")}}});
 viewer.ui.add({PCA7:{action:function() {switchOverlay("pca7")}}});
 viewer.ui.add({PCA8:{action:function() {switchOverlay("pca8")}}});
 viewer.ui.add({PCA9:{action:function() {switchOverlay("pca9")}}});
+switchOverlay("rgbvol1");
 }
 else {
 setTimeout(waitForElement, 500);
@@ -57524,7 +57525,7 @@ newy = (y-origin[1])*2;
 newz = (z-origin[2])*2;
 console.log(newx,newy,newz);
 var stri = "";
-$.getJSON("https://cors-anywhere.herokuapp.com/http://neurosynth.org/api/locations/compare/?x="+newx+"&y="+newy+"&z="+newz+"&r=6", function( data ) {
+$.getJSON("http://neurosynth.org/api/locations/compare/?x="+newx+"&y="+newy+"&z="+newz+"&r=6", function( data ) {
 b = data;
 keylist = []; keylist.sortIndices = [];
 for (i=0; i<1335; i++){
@@ -57561,10 +57562,10 @@ newy = (y-origin[1])*2;
 newz = (z-origin[2])*2;
 console.log(newx,newy,newz);
 var stri = "";
-$.getJSON( "https://cors-anywhere.herokuapp.com/http://neurosynth.org/api/locations/"+newx+"_"+newy+"_"+newz+"_6/studies/", function( data ) {
+$.getJSON( "http://neurosynth.org/api/locations/"+newx+"_"+newy+"_"+newz+"_6/studies/", function( data ) {
 for (i=0; i<10; i++){
 if (typeof(data.data) !== "undefined") {
-$.getJSON("https://cors-anywhere.herokuapp.com/http://neurosynth.org:80/api/studies/?pmid=" + data.data[i].pmid + "&retmode=json", function (datum) {
+$.getJSON("http://neurosynth.org:80/api/studies/?pmid=" + data.data[i].pmid + "&retmode=json", function (datum) {
 stri = stri.concat(String.raw`<a href=https://doi.org/`);
 stri = stri.concat(datum.data[0].doi);
 stri = stri.concat(String.raw` target="_blank"`);
@@ -57576,19 +57577,19 @@ document.getElementById("collapse_text").innerHTML = stri;
 }
 }
 // var id1 = data.data[1].pmid;
-// $.getJSON("https://cors-anywhere.herokuapp.com/http://neurosynth.org:80/api/studies/?pmid=" + id1 + "&retmode=json", function (datum) {
+// $.getJSON("http://neurosynth.org:80/api/studies/?pmid=" + id1 + "&retmode=json", function (datum) {
 // stri = stri.concat(datum.data[0].title);
 // stri = stri.concat("<br><br>");
 // document.getElementById("collapse_text").innerHTML = stri;
 // });
 // var id2 = data.data[2].pmid;
-// $.getJSON("https://cors-anywhere.herokuapp.com/http://neurosynth.org:80/api/studies/?pmid=" + id2 + "&retmode=json", function (datum) {
+// $.getJSON("http://neurosynth.org:80/api/studies/?pmid=" + id2 + "&retmode=json", function (datum) {
 // stri = stri.concat(datum.data[0].title);
 // stri = stri.concat("<br><br>");
 // document.getElementById("collapse_text").innerHTML = stri;
 // });
 // var id3 = data.data[3].pmid;
-// $.getJSON("https://cors-anywhere.herokuapp.com/http://neurosynth.org:80/api/studies/?pmid=" + id3 + "&retmode=json", function (datum) {
+// $.getJSON("http://neurosynth.org:80/api/studies/?pmid=" + id3 + "&retmode=json", function (datum) {
 // stri = stri.concat(datum.data[0].title);
 // stri = stri.concat("<br><br>");
 // document.getElementById("collapse_text").innerHTML = stri;
