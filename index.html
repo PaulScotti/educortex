@@ -57350,6 +57350,16 @@ pca9 = ['striatum', 'reward' ,'ventral striatum', 'monetary', 'striatal',
 'secondary somatosensory', 'somatosensory' ,'painful' ,'insula' ,'pain']
 pca10 = ['vi' ,'cerebellar', 'cerebellum' ,'lobules' ,'vermis', 'retrieval', 'mtl',
 'primary motor','hippocampal' ,'hippocampus']
+function doesFileExist(urlToFile) {
+var xhr = new XMLHttpRequest();
+xhr.open('HEAD', urlToFile, false);
+xhr.send();
+if (xhr.status == "404") {
+return false;
+} else {
+return true;
+}
+}
 // to remove stuff after everything else loads
 function waitForElement(){
 if(typeof kdt !== "undefined"){
@@ -57382,6 +57392,7 @@ $("#searcher_input").blur();
 }
 });
 function switchOverlay(term){
+if (doesFileExist("data/"+term+".png")) {
 if (term.includes("pca") && term.length==4 && parseInt(term[3]) > 0) {
 $(".pcatext").show();
 if (term[3]==1) {
@@ -57499,6 +57510,7 @@ document.getElementById("pc10").innerHTML = pca10[9];
 $(".pcatext").hide();
 }
 if (term.includes("rgbvol")) {
+if ("data/"+term+".png")
 dataviews = dataset.fromJSON({"views": [{"xfm": [[-0.5, 0.0, 0.0, 45.0, 0.0, 0.5, 0.0, 63.0, 0.0, 0.0, 0.5, 36.0, 0.0, 0.0, 0.0, 1.0]],
 "data": ["__f2b88e589507c4bc"], "state": null, "attrs": {"priority": 1}, "desc": "", "cmap": ["RdBu_r"],
 "vmin": [-3], "vmax": [3], "name": term}],
@@ -57516,6 +57528,9 @@ dataviews = dataset.fromJSON({"views": [{"xfm": [[-0.5, 0.0, 0.0, 45.0, 0.0, 0.5
 "images": {"__f2b88e589507c4bc": ["data/"+term+".png"]}});
 }
 viewer.addData(dataviews);
+} else {
+console.log("Term does not exist.")
+}
 }
 function pullKeywords(x,y,z){
 document.getElementById("infoheader").innerHTML = "Associated Terms"
