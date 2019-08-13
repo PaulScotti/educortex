@@ -57540,7 +57540,7 @@ newy = (y-origin[1])*2;
 newz = (z-origin[2])*2;
 console.log(newx,newy,newz);
 var stri = "";
-$.getJSON("http://neurosynth.org/api/locations/compare/?x="+newx+"&y="+newy+"&z="+newz+"&r=6", function( data ) {
+$.getJSON("https://neurosynth.org/api/locations/compare/?x="+newx+"&y="+newy+"&z="+newz+"&r=6", function( data ) {
 b = data;
 keylist = []; keylist.sortIndices = [];
 for (i=0; i<1335; i++){
