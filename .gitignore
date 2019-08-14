@@ -130,3 +130,7 @@ dmypy.json
 
 # Also DS_Store
 .DS_Store
+
+# don't load neurosynth data
+/PCA/neurosynth-data
+
