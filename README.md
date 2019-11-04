@@ -1,10 +1,10 @@
-# PyCortexEdu
-PyCortexEdu is a [Neurohackademy](http://neurohackademy.org) 2019 project. The goal of PyCortexEdu is to visualize different brain atlases, parcellations and associated terms and variance components of the neuroimaging literature from [Neurosynth](http://neurosynth.org) on a 3D brain. This can be used as educational resource and potentially for researchers to evaluate functional and structural probabilities of selected brain regions. The [PyCortex](https://github.com/gallantlab/pycortex) software library is used for visualisation. 
+# EduCortex
+EduCortex is a [Neurohackademy](http://neurohackademy.org) 2019 project. The goal of EduCortex is to visualize different brain atlases, parcellations and associated terms and variance components of the neuroimaging literature from [Neurosynth](http://neurosynth.org) on a 3D brain. This can be used as educational resource to easily visualize anatomical labels and functional activations of Neurosynth keywords on a 3D interactive brain. The [PyCortex](https://github.com/gallantlab/pycortex) software library is used for visualisation. 
 
 ## Installation
-PyCortexEdu can be accessed without installation as an online webviewer, see [PyCortexEduViewer](https://paulscotti.github.io/PyCortexEdu/).
+EduCortex can be accessed without installation as an online webviewer, see [EduCortexViewer](https://paulscotti.github.io/EduCortex/).
 
-If you want to use PyCortexEdu locally, take the following steps:
+If you want to use EduCortex locally, take the following steps:
 
 ### 1. Install pycortex (see also instructions [here](https://gallantlab.github.io/install.html))
 
