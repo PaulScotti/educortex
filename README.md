@@ -5,7 +5,7 @@
 
 ## Overview
 
-EduCortex is a [Neurohackademy](http://neurohackademy.org) 2019 project. The goal of EduCortex is to visualize different brain atlases, parcellations and associated terms and variance components of the neuroimaging literature from [Neurosynth](http://neurosynth.org) on a 3D brain. This can be used as educational resource to easily visualize anatomical labels and functional activations of Neurosynth keywords on a 3D interactive brain. The [PyCortex](https://github.com/gallantlab/pycortex) software library is used for visualization. 
+EduCortex is a [Neurohackademy](http://neurohackademy.org) 2019 project. The goal of EduCortex is to visualize functional and anatomical terms and variance components of the neuroimaging literature from [Neurosynth](http://neurosynth.org) on a 3D brain. This can be used as educational resource to easily visualize anatomical labels and functional activations of Neurosynth keywords on a 3D interactive brain. The [PyCortex](https://github.com/gallantlab/pycortex) software library is used for visualization. 
 
 ## Installation
 
@@ -36,7 +36,7 @@ sudo apt-get install python-dev python-numpy python-scipy python-matplotlib pyth
 ### 2. Follow steps in runMappingViz.ipynb
 
 ## Contributions
-Contributions are welcome, feel free to open an issue or do a pull request.
+Contributions are welcome, feel free to open an issue or do a pull request. 
 
 ## Authors
 Paul Scotti, Arman Kulkarni, Matan Mazor, Eduard Klapwijk, Tal Yarkoni, Alex Huth
