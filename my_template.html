@@ -35,24 +35,14 @@
         overflow: auto;
     }
 
-    .pcatext {
-        z-index: 999;
-        position: absolute; 
-        right: 2%;
-        bottom: 0%;
-        color: rgb(255, 255, 255);
-    }
-
     .wordcloud {
         position: absolute; 
-        z-index: 2;
-        width: 30%;
-        height: 30%;
-        right: 2%;
-        bottom: 2%;
+        z-index: 130;
+        width: 39%;
+        height: 39%;
+        right: 1%;
+        bottom: 1%;
         font-size: 10pt;
-        margin: 2% auto; 
-        padding: 5px;
         overflow: hidden;
     }
 
@@ -91,8 +81,9 @@
     .searcher {
         z-index: 999;
         position: absolute;
-        top: 22.5%;
-        left: 14%;
+        top: 21%;
+        left: 18%;
+        margin: 2px;
         width: 10%;
         height: 2.5%;
         font-size: 10px;
@@ -113,23 +104,10 @@
     <p id="infotext"></p>
 </div>
 
-<div class="wordcloud" style="display:hidden;">
-    <p id="wc1"><img src="wordclouds/wordCloud1_anatfilter.png" style="width:80%;height:80%;"></p>
-    <p id="wc2"><img src="wordclouds/wordCloud2_anatfilter.png" style="width:80%;height:80%;"></p>
-    <p id="wc3"><img src="wordclouds/wordCloud3_anatfilter.png" style="width:80%;height:80%;"></p>
-</div>
-
-<div class="pcatext">
-    <p id="pc1" style="font-size: 14pt; color:rgba(255, 0, 0, 0.623)"></p>
-    <p id="pc2" style="font-size: 12pt; color:rgba(255, 0, 0, 0.623)"></p>
-    <p id="pc3" style="font-size: 10pt; color:rgba(255, 0, 0, 0.623)"></p>
-    <p id="pc4" style="font-size: 8pt; color:rgba(255, 0, 0, 0.623)"></p>
-    <p id="pc5" style="font-size: 6pt; color:rgba(255, 0, 0, 0.623)"></p>
-    <p id="pc6" style="font-size: 6pt; color:rgba(78, 187, 250, 0.671)"></p>
-    <p id="pc7" style="font-size: 8pt; color:rgba(78, 187, 250, 0.671)"></p>
-    <p id="pc8" style="font-size: 10pt; color:rgba(78, 187, 250, 0.671)"></p>
-    <p id="pc9" style="font-size: 12pt; color:rgba(78, 187, 250, 0.671)"></p>
-    <p id="pc10" style="font-size: 14pt; color:rgba(78, 187, 250, 0.671)"></p>
+<div class="wordcloud">
+    <img id="wc1" src="wordclouds/wordCloud1_anatfilter.png" style="height: 99%; position: absolute; bottom: 0px; right:10px;">
+    <img id="wc2" src="wordclouds/wordCloud2_anatfilter.png" style="height: 99%; position: absolute; bottom: 0px; right:10px;">
+    <img id="wc3" src="wordclouds/wordCloud3_anatfilter.png" style="height: 99%; position: absolute; bottom: 0px; right:10px;">
 </div>
 
 <button class="collapsible">Associated Studies</button>
@@ -143,26 +121,6 @@
 
 <script type="text/javascript">
     no_anats = "abilitiesabilityabstractabuseaccuracyaccurateaccuratelyacousticactactionactionobservationactionsactsadadaptationaddaddictionadditionadhdadolescenceadolescentadolescentsadultadulthoodadultsaffectaffectiveageagentagingalalcoholalffalphaalzheimeralzheimerdiseaseambiguousamnesticangerangryanimalanimalsanticipationanticipatoryanxietyanxietydisordersaphasiaappraisalapproacharithmeticarmarousalarterialarterialspinarticulatoryasdassociationassociationsassociativeasymmetryatrophyattendattendedattendingattentionattentiondeficitattentionnetworkattentiontaskattentionalattentionalcontrolattenuationaudiovisualauditoryauditorystimuliauditoryvisualautismautismspectrumautobiographicalautobiographicalmemoryautonomicaversiveavoidavoidanceawarenessbabalancebaselinebehaviorbehavioralbehavioralmeasuresbehavioralperformancebehavioralresponsesbehaviorsbeliefbeliefsbetabiasbilingualsbindingbiomarkerbiomarkersbipolarbipolardisorderblindbodilybodybuttoncalculationcapacitycapturecategoricalcategoriescategorizationcategorycharactercharacterschildhoodchildrenchinesechoicechoiceschoosechosenchronicchronicpainclassicalcognitioncognitivecognitivecontrolcognitivedeficitscognitiveemotionalcognitivefunctioncognitivefunctionscognitiveimpairmentcognitiveperformancecognitiveprocessescognitivetaskcognitivetaskscognitivelycoherencecolorcommunicationcompensatecompensationcompensatorycompetingcompetitioncomplexcomplexitycomprehensioncompulsivecompulsivedisordercomputationconcentrationconceptconceptsconceptualconcreteconcurrentconcurrentlyconditionedconditioningconductanceconfidenceconflictconflictingconfoundingcongruencycongruentcongruentincongruentconjunctionconnectivityconsciousconsciousnessconsecutiveconsistencyconsolidationconstraintsconstructionconsumptioncontextcontextscontextualcontralateralcontrolcontrolnetworkcontrolprocessescontroltaskcontrolledcontrollingcontrolscoordinationcorecorrectcorrectioncorrectlycovertcravingcrossmodalcuecuedcuesdailylifedamagedecisiondecisionmakingdecisiontaskdecisionsdeclinedeclinesdecodingdefaultdefaultmodedefaultnetworkdeficientdeficitdeficithyperactivitydeficitsdelaydelayeddemanddemandingdemandsdementiadependencedepresseddepressiondepressivedepressivedisorderdeprivationdepthdetectdetecteddetectingdetectiondetectiontaskdevelopmentdevelopmentaldiagnosisdifficultdifficultydigitdimensiondimensionaldimensionsdisabilitydiscriminatediscriminateddiscriminationdiscriminationtaskdiscriminativediseasediseaseaddiseasepddiseasesdisgustdisorderdisorderadhddisordermdddisorderocddisorderptsddisordersdistractiondistractordistractorsdivideddmndomaingeneraldominancedominantdopaminedopaminergicdrugdrugsdyslexiadysregulationearlyvisualeatingeconomiceducationefficiencyefforteffortfulelderlyelectricalemotionregulationemotionalemotionalfacesemotionalinformationemotionalresponsesemotionalstimuliemotionalvalenceemotionallyemotionsempathicempathyencodeencodedencodingencodingretrievalendogenousengagementenglishepilepsyepisodeepisodesepisodicepisodicmemoryerperrorerrorsestimationevaluationevaluationseventseverydayeverydaylifeexecutedexecutionexecutiveexecutivecontrolexecutivefunctionexecutivefunctionsexpectancyexpectationexpectationsexperienceexperiencesexperiencingexpertiseexplicitexplorationexploratoryexpressedexpressionexpressionsexternallyextinctioneyeeyemovementeyemovementseyesfafacefacerecognitionfacesfacialfacialexpressionfacialexpressionsfamiliarfamiliarityfamilyfcfearfearfulfearfulfacesfeaturefeaturesfeelingfeelingsfemalefemalesfiberfingerfingermovementsfingertappingfixationflexibilityfluencyfocusfoodfootforceformformsfrequencyfunctionalconnectivitygaingainsgamblinggamegammagazegendergenerationgenesgermangesturesgoalgoaldirectedgoalsgraspinghandhandmovementshandedhandednesshandshappyhappyfaceshcheadhealthheardhearingheartheartratehighriskhochubhubshumanhumanshyperactivationhyperactivityhyperactivitydisorderhypoactivationidentificationillnessillusionimageimageryimagesimagineimaginedimitationimplicitimpulsiveimpulsivityincentiveincentivedelayincongruentinconsistentincorrectindexfingerindividualvariabilityinductioninferenceinferencesinformationinhibitinhibitioninhibitoryinhibitorycontrolinjuryinstructioninstructionsintegrateintegratedintegratingintegrationintegrativeintegrityintelligenceintenseintensityintentionintentionalintentionsinteractioninteractionsinteractiveinterferenceinteroceptiveinterpersonalintervalintervalsinvasiveiqitemitemsjudgmentjudgmenttaskjudgmentsknowledgelanguagelanguagecomprehensionlanguagenetworklanguageslearnlearnedlearninglearningtasklesionlesionsletterletterslexicallexicaldecisionlifelightlikelihoodlimblinguisticlistenedlisteningloadlocationlocationslocuslongtermlooplosslosseslowlevelmagneticstimulationmagnetoencephalographymagnitudemaintenancemajordepressionmajordepressivemanipulationmanipulationsmanualmappingmapsmatchmatchingmatchingtaskmcimddmemoriesmemorymemoryencodingmemoryloadmemoryperformancememoryprocessesmemoryretrievalmemorytaskmemorytasksmemorytestmemorywmmentalimagerymentalstatementalstatesmentalizingmetmetabolicmetabolismmgmildcognitivemindmindtommirrormmmnemonicmodalitiesmodalitymodulatorymonetarymonetaryincentivemonetaryrewardmoneymonitoringmoodmoralmorphologicalmorphologymotionmotivationmotivationalmotormotorcontrolmotorfunctionmotorimagerymotornetworkmotorperformancemotorresponsemotorresponsesmotortaskmovementmovementsmsmultiplesclerosismultisensorymusclemusicmusicalmusiciansnamesnamingnaturalnaturalisticnaturenavigationnegativenegativeaffectnegativeemotionalnegativeemotionsnegativefeedbacknegativeneutralnegativepositivenegativitynetworkdmnneutralneutralfacesneutralpicturesneutralstimulinociceptivenogonoisenounsnovelnoveltynoxiousobjectobjectrecognitionobjectsobsessiveobsessivecompulsiveocdoddballolderadultsolfactoryoralorganizationorientationorientedorientingorthographicoscillationsoutcomeoutcomespainpainfulpairpairedpairsparkinsonparkinsondiseasepassivepassiveviewingpassivelypdpeopleperceivingperceptperceptionperceptualperformanceperformancetaskpersonpersonalpersonalitypersonalitytraitspersonspharmacologicalphonologicalphotographspicturepicturespitchplaceplaceboplacebocontrolledplanningplasticitypleasantpointingpoorpositivenegativeposttraumaticpredictionpredictionerrorpredictionspredictivepreferencepreferencespreparationpreparatorypressureprimeprimingprobabilisticprobabilityproductionprogressiveprospectivepseudowordspsychosispsychoticptsdpunishmentquestionnaireratingratingsreachingreactionreactiontimereactiontimesreactionsreactivityreadreadersreadingrealworldreappraisalreasoningrecallrecognitionrecognitionmemoryrecognitiontaskrecognizerecognizedrecognizingrecollectionreferencereferentialreferredregulateregulatingregulationregulatoryrehabilitationrehearsalrehoreinforcementreinforcementlearningrelationalrelevancerememberrememberedrememberingreorganizationrepetitionrepetitionsuppressionresponseinhibitionresponseselectionresponsetimeresponsetimesrestrestingrestingstateretentionretrievalretrievedreversalrewardrewardanticipationrewardingrewardsrhythmriskrisktakingriskyrotationrsrsfcrtrulerulessaccadesaccadessadsaliencesaliencenetworksalientschizophreniaschizophrenicsclerosisselectionselectiveselectiveattentionselfreferentialselfreportselfreportedsemanticsemanticmemorysemanticallysemanticssensationsensationssensitivitysensorysensoryinformationsentencesentencecomprehensionsentencesseparationsequencesequencessequentialserialserotoninsexsexualshamshapesshiftingshiftsshorttermsightedsignaltasksignalingsilentsimilaritysimulationsizesizesskinskinconductancesleepsmokerssmokingsocialsocialcognitionsocialcognitivesocialinteractionsocialinteractionssociallysolvingsoundsoundssourcesourcesspacespatialspatialattentionspatialinformationspatialtemporalspatiallyspatiotemporalspeakerspeakersspeakingspectrumspectrumdisorderspectrumdisordersspeechspeechperceptionspeechproductionspokenspontaneousstimulationstimulationtmsstopstopsignalstoragestrategicstrategiesstrategystreamstreamsstressstressdisorderstrokestroopstrooptasksubjectivesubsequentsubsequentmemorysubstancesubtractionsuccesssufferingsuppressedsuppressionsustainedsustainedattentionswitchswitchingsymbolicsymptomsymptomseveritysymptomssyntactictactiletappingtargettargetdetectiontargetstasktaskdemandstaskdifficultytaskpositivetaskrelevanttaskstastetdtheorytheorymindtherapythinkingthoughtthoughtsthreateningtimetasktimingtomtonetoolstouchtracktrackingtraittraitsuncertainuncertaintyunexpectedunfamiliarunilateralunimodalunpleasantupdatingvalencevaluevaluesverbverbalverbalfluencyverbalworkingverbsvermisvideovideoclipsvideosviewingviolationsvirtualvisionvisualvisualattentionvisualauditoryvisualfieldvisualinformationvisualmotionvisualperceptionvisualstimulivisualstimulusvisualstreamvisualwordvisuallyvisuallypresentedvisuovisuospatialvisuomotorvisuospatialvocalvoicevulnerabilitywatchingwmwmtaskwordwordformwordpairswordrecognitionwordsworkingworkingmemorywritten";
-    pca1 = ['motor','premotor','movements', 'movement' ,'hand' ,'medial', 'hippocampus',
-    'medial prefrontal', 'emotional' ,'amygdala'];
-    pca2 = ['temporal' ,'semantic' ,'language' ,'words' ,'visual', 'striatum', 'insula',
-    'somatosensory', 'motor', 'pain']
-    pca3 = ['auditory' ,'superior temporal', 'speech', 'auditory cortex' ,'sounds',
-    'retrieval', 'task' ,'prefrontal' ,'memory' ,'parietal']
-    pca4 = ['occipital', 'lateral occipital', 'visual', 'motion', 'intraparietal',
-    'autobiographical', 'semantic' ,'insula', 'auditory', 'temporal']
-    pca5 = ['hippocampus', 'amygdala' ,'fusiform' ,'faces' ,'medial temporal',
-    'inferior frontal' ,'frontal gyrus', 'working memory' ,'dorsolateral','frontal']
-    pca6 = ['default', 'default mode', 'resting', 'resting state' ,'dmn' ,'nucleus',
-    'insula', 'amygdala', 'striatum', 'reward']
-    pca7 = ['cerebellar', 'vi' ,'cerebellum', 'hippocampal', 'hippocampus', 'insula',
-    'medial prefrontal' ,'junction', 'theory mind' ,'social']
-    pca8 = ['auditory', 'auditory cortex' ,'sounds', 'planum', 'planum temporale',
-    'inferior frontal', 'words', 'semantic', 'reading', 'word']
-    pca9 = ['striatum', 'reward' ,'ventral striatum', 'monetary', 'striatal',
-    'secondary somatosensory', 'somatosensory' ,'painful' ,'insula' ,'pain']
-    pca10 = ['vi' ,'cerebellar', 'cerebellum' ,'lobules' ,'vermis', 'retrieval', 'mtl',
-    'primary motor','hippocampal' ,'hippocampus']
 
     function doesFileExist(urlToFile) {
         var xhr = new XMLHttpRequest();
@@ -182,11 +140,13 @@
             viewer.ui.add({"Top 1-3 PCA":{action:function() {switchOverlay("rgbvol1")}}});
             viewer.ui.add({"Top 4-6 PCA":{action:function() {switchOverlay("rgbvol2")}}});
             viewer.ui.add({"Top 7-9 PCA":{action:function() {switchOverlay("rgbvol3")}}});
+            switchOverlay("rgbvol1")
         }
         else {
             setTimeout(waitForElement, 500);
         }
     }
+    $(".wordcloud").hide();
     waitForElement();
 
     $("#searcher_input").keyup(function(e) {
@@ -201,124 +161,6 @@
 
     function switchOverlay(term){
         if (doesFileExist("data/"+term+".png")) {
-            if (term.includes("pca") && term.length==4 && parseInt(term[3]) > 0) {
-                $(".wordcloud").hide();
-                $(".pcatext").show();
-                if (term[3]==1) {
-                    document.getElementById("pc1").innerHTML = pca1[0];
-                    document.getElementById("pc2").innerHTML = pca1[1];
-                    document.getElementById("pc3").innerHTML = pca1[2];
-                    document.getElementById("pc4").innerHTML = pca1[3];
-                    document.getElementById("pc5").innerHTML = pca1[4];
-                    document.getElementById("pc6").innerHTML = pca1[5];
-                    document.getElementById("pc7").innerHTML = pca1[6];
-                    document.getElementById("pc8").innerHTML = pca1[7];
-                    document.getElementById("pc9").innerHTML = pca1[8];
-                    document.getElementById("pc10").innerHTML = pca1[9];
-                } else if (term[3]==2) {
-                    document.getElementById("pc1").innerHTML = pca2[0];
-                    document.getElementById("pc2").innerHTML = pca2[1];
-                    document.getElementById("pc3").innerHTML = pca2[2];
-                    document.getElementById("pc4").innerHTML = pca2[3];
-                    document.getElementById("pc5").innerHTML = pca2[4];
-                    document.getElementById("pc6").innerHTML = pca2[5];
-                    document.getElementById("pc7").innerHTML = pca2[6];
-                    document.getElementById("pc8").innerHTML = pca2[7];
-                    document.getElementById("pc9").innerHTML = pca2[8];
-                    document.getElementById("pc10").innerHTML = pca2[9];
-                } else if (term[3]==3) {
-                    document.getElementById("pc1").innerHTML = pca3[0];
-                    document.getElementById("pc2").innerHTML = pca3[1];
-                    document.getElementById("pc3").innerHTML = pca3[2];
-                    document.getElementById("pc4").innerHTML = pca3[3];
-                    document.getElementById("pc5").innerHTML = pca3[4];
-                    document.getElementById("pc6").innerHTML = pca3[5];
-                    document.getElementById("pc7").innerHTML = pca3[6];
-                    document.getElementById("pc8").innerHTML = pca3[7];
-                    document.getElementById("pc9").innerHTML = pca3[8];
-                    document.getElementById("pc10").innerHTML = pca3[9];
-                } else if (term[3]==4) {
-                    document.getElementById("pc1").innerHTML = pca4[0];
-                    document.getElementById("pc2").innerHTML = pca4[1];
-                    document.getElementById("pc3").innerHTML = pca4[2];
-                    document.getElementById("pc4").innerHTML = pca4[3];
-                    document.getElementById("pc5").innerHTML = pca4[4];
-                    document.getElementById("pc6").innerHTML = pca4[5];
-                    document.getElementById("pc7").innerHTML = pca4[6];
-                    document.getElementById("pc8").innerHTML = pca4[7];
-                    document.getElementById("pc9").innerHTML = pca4[8];
-                    document.getElementById("pc10").innerHTML = pca4[9];
-                } else if (term[3]==5) {
-                    document.getElementById("pc1").innerHTML = pca5[0];
-                    document.getElementById("pc2").innerHTML = pca5[1];
-                    document.getElementById("pc3").innerHTML = pca5[2];
-                    document.getElementById("pc4").innerHTML = pca5[3];
-                    document.getElementById("pc5").innerHTML = pca5[4];
-                    document.getElementById("pc6").innerHTML = pca5[5];
-                    document.getElementById("pc7").innerHTML = pca5[6];
-                    document.getElementById("pc8").innerHTML = pca5[7];
-                    document.getElementById("pc9").innerHTML = pca5[8];
-                    document.getElementById("pc10").innerHTML = pca5[9];
-                } else if (term[3]==6) {
-                    document.getElementById("pc1").innerHTML = pca6[0];
-                    document.getElementById("pc2").innerHTML = pca6[1];
-                    document.getElementById("pc3").innerHTML = pca6[2];
-                    document.getElementById("pc4").innerHTML = pca6[3];
-                    document.getElementById("pc5").innerHTML = pca6[4];
-                    document.getElementById("pc6").innerHTML = pca6[5];
-                    document.getElementById("pc7").innerHTML = pca6[6];
-                    document.getElementById("pc8").innerHTML = pca6[7];
-                    document.getElementById("pc9").innerHTML = pca6[8];
-                    document.getElementById("pc10").innerHTML = pca6[9];
-                } else if (term[3]==7) {
-                    document.getElementById("pc1").innerHTML = pca7[0];
-                    document.getElementById("pc2").innerHTML = pca7[1];
-                    document.getElementById("pc3").innerHTML = pca7[2];
-                    document.getElementById("pc4").innerHTML = pca7[3];
-                    document.getElementById("pc5").innerHTML = pca7[4];
-                    document.getElementById("pc6").innerHTML = pca7[5];
-                    document.getElementById("pc7").innerHTML = pca7[6];
-                    document.getElementById("pc8").innerHTML = pca7[7];
-                    document.getElementById("pc9").innerHTML = pca7[8];
-                    document.getElementById("pc10").innerHTML = pca7[9];
-                } else if (term[3]==8) {
-                    document.getElementById("pc1").innerHTML = pca8[0];
-                    document.getElementById("pc2").innerHTML = pca8[1];
-                    document.getElementById("pc3").innerHTML = pca8[2];
-                    document.getElementById("pc4").innerHTML = pca8[3];
-                    document.getElementById("pc5").innerHTML = pca8[4];
-                    document.getElementById("pc6").innerHTML = pca8[5];
-                    document.getElementById("pc7").innerHTML = pca8[6];
-                    document.getElementById("pc8").innerHTML = pca8[7];
-                    document.getElementById("pc9").innerHTML = pca8[8];
-                    document.getElementById("pc10").innerHTML = pca8[9];
-                } else if (term[3]==9) {
-                    document.getElementById("pc1").innerHTML = pca9[0];
-                    document.getElementById("pc2").innerHTML = pca9[1];
-                    document.getElementById("pc3").innerHTML = pca9[2];
-                    document.getElementById("pc4").innerHTML = pca9[3];
-                    document.getElementById("pc5").innerHTML = pca9[4];
-                    document.getElementById("pc6").innerHTML = pca9[5];
-                    document.getElementById("pc7").innerHTML = pca9[6];
-                    document.getElementById("pc8").innerHTML = pca9[7];
-                    document.getElementById("pc9").innerHTML = pca9[8];
-                    document.getElementById("pc10").innerHTML = pca9[9];
-                } else if (term[3]==10) {
-                    document.getElementById("pc1").innerHTML = pca10[0];
-                    document.getElementById("pc2").innerHTML = pca10[1];
-                    document.getElementById("pc3").innerHTML = pca10[2];
-                    document.getElementById("pc4").innerHTML = pca10[3];
-                    document.getElementById("pc5").innerHTML = pca10[4];
-                    document.getElementById("pc6").innerHTML = pca10[5];
-                    document.getElementById("pc7").innerHTML = pca10[6];
-                    document.getElementById("pc8").innerHTML = pca10[7];
-                    document.getElementById("pc9").innerHTML = pca10[8];
-                    document.getElementById("pc10").innerHTML = pca10[9];
-                }
-            } else {
-                $(".wordcloud").hide();
-                $(".pcatext").hide();
-            }
             if (term.includes("rgbvol")) {
                 $(".wordcloud").show();
                 if (term.includes("rgbvol1")) {
