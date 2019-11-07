@@ -1,5 +1,5 @@
 ---
-title: 'EduCortex: browser-based brain visualization of large-scale functional maps'
+title: 'EduCortex: browser-based brain visualization of meta-analysis maps'
 tags:
   - visualization
   - meta analysis
