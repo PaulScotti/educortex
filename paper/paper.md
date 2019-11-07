@@ -1,25 +1,32 @@
 ---
-title: 'EduCortex: browser-based brain visualization of meta-analysis maps'
+title: 'EduCortex: browser-based 3D brain visualization of meta-analysis maps'
 tags:
   - visualization
   - meta analysis
   - functional mapping
   - educational tool
   - neurosynth
+# author:
+#   - Paul S. Scotti
+#   - Arman Kulkarni
+#   - Matan Mazor
+#   - Eduard Klapwijk
+#   - Tal Yarkoni
+#   - Alexander Huth
 authors:
   - name: Paul S. Scotti
     orcid: 0000-0003-4912-8809
-    affiliation: "1"
+    affiliation: 1
   - name: Arman Kulkarni
-    affiliation: "2"
+    affiliation: 2
   - name: Matan Mazor
-    affiliation: "3"
+    affiliation: 3
   - name: Eduard Klapwijk
-    affiliation: "4"
+    affiliation: 4
   - name: Tal Yarkoni
-    affiliation: "5"
+    affiliation: 5
   - name: Alexander Huth
-    affiliation: "5"
+    affiliation: 5
 affiliations:
   - name: The Ohio State University, Ohio, USA
     index: 1
@@ -36,7 +43,7 @@ bibliography: paper.bib
 ---
 
 # Summary
-[EduCortex](paulscotti.github.io/educortex) is an educational browser-based visualization tool that allows the user to enter any functional or anatomical term (e.g., "visual", "face", "motion", "precuneus") and visualize the parts of the brain that are most associated with that term. The process can also be reversed, where the user can click anywhere on the brain to see what terms are most associated with the selected brain region. Using principal components analysis, we also display the functional terms that explained the most variance across all activation maps. This tool works through the combination of Neurosynth[@neurosynth], a large-scale, automated database of fMRI papers, and PyCortex[@pycortex], an interactive 3D brain visualizer.
+[EduCortex](paulscotti.github.io/educortex) is an educational browser-based visualization tool that allows the user to enter any functional or anatomical term (e.g., "visual", "face", "motion", "precuneus") and visualize the parts of the brain that are most associated with that term. The process can also be reversed, where the user can click anywhere on the brain to see what terms are most associated with the selected brain region. Using principal components analysis, we also display the functional terms that explained the most variance across all activation maps. This tool works through the combination of Neurosynth [@neurosynth], a large-scale, automated database of fMRI papers, and PyCortex [@pycortex], an interactive 3D brain visualizer.
 
 Below we detail the features of EduCortex in line with the steps displayed in the following figure.
 
@@ -44,7 +51,7 @@ Below we detail the features of EduCortex in line with the steps displayed in th
 
 # Features
 ## 1. Interactive 3D Brain
-The brain used for all visualization is the "fsaverage" brain taken from Freesurfer[@freesurfer]. The brain can be rotated by clicking and dragging with the mouse. It can also be resized by right-clicking and dragging with the mouse. The initial activation map displayed on the brain is a colormap representing the top 3 principal components of our dimensionality reduction procedure (see Principal Components Analysis section). 
+The brain used for all visualization is the "fsaverage" brain taken from Freesurfer [@freesurfer]. The brain can be rotated by clicking and dragging with the mouse. It can also be resized by right-clicking and dragging with the mouse. The initial activation map displayed on the brain is a colormap representing the top 3 principal components of our dimensionality reduction procedure (see Principal Components Analysis section). 
 
 ## 2. Viewer Controls
 All the default viewer controls implemented in PyCortex are available in EduCortex. Using this control panel, the brain can be rotated, resized, inflated, flattened, etc. Clicking the "shortcuts" panel underneath "help" reveals useful keyboard shortcuts to these features.
@@ -72,5 +79,8 @@ Along with the associated terms for a clicked region, we also display up to 10 o
 
 # Acknowledgments
 EduCortex was created as part of [Neurohackademy 2019](https://neurohackademy.org/). We thank the organizers, instructors, and participants of Neurohackademy for their helpful discussion and insight.
+
+# License
+This project is licensed under the GNU General Public License v2.0 - see the LICENSE.md file for details.
 
 # References
