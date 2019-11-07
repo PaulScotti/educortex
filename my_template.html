@@ -38,8 +38,8 @@
     .wordcloud {
         position: absolute; 
         z-index: 130;
-        width: 39%;
-        height: 39%;
+        width: 60%;
+        height: 60%;
         right: 1%;
         bottom: 1%;
         font-size: 10pt;
@@ -52,17 +52,18 @@
         bottom: 0;
         left: 0;
         width: 30%;
-        height: 5%;
-        background-color: rgba(223, 215, 215, 0.664);
+        height: 3%;
+        background-color: rgba(0, 0, 0, 0.664);
         color: rgb(255, 255, 255);
         cursor: pointer;
         padding: 5px;
         border: none;
         outline: none;
         font-size: 12px;
+        font-family: "Lucida Grande";
     }
     .active, .collapsible:hover {
-        background-color: rgba(82, 79, 79, 0.671);
+        background-color: rgba(43, 41, 41, 0.671);
     }
     .collapse_content {
         z-index: 999;
@@ -82,32 +83,39 @@
         z-index: 999;
         position: absolute;
         top: 21%;
-        left: 18%;
+        left: 15%;
         margin: 2px;
+        padding: 10px;
         width: 10%;
         height: 2.5%;
         font-size: 10px;
+        font-family: "Lucida Grande";
     }
     input#searcher_input {
-        background-color:#968d8dc9;
+        width: 50%;
+        background-color:#413d3dc9;
         color:rgb(255, 255, 255);
     }
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: rgba(255, 255, 255, 0.753);
         opacity: 1; /* Firefox */
     }
+    #searchGo {
+        background-color: rgba(43, 41, 41, 0.671);
+        color: rgba(255, 255, 255, 0.753);
+    }
 </style>
 
 <div class="infobox">
-    <p id="infoheader">Click anywhere on the brain to show associated key words.</p>
+    <p id="infoheader">Click anywhere on the brain to show associated terms.</p>
     <hr>
     <p id="infotext"></p>
 </div>
 
 <div class="wordcloud">
-    <img id="wc1" src="wordclouds/wordCloud1_anatfilter.png" style="height: 99%; position: absolute; bottom: 0px; right:10px;">
-    <img id="wc2" src="wordclouds/wordCloud2_anatfilter.png" style="height: 99%; position: absolute; bottom: 0px; right:10px;">
-    <img id="wc3" src="wordclouds/wordCloud3_anatfilter.png" style="height: 99%; position: absolute; bottom: 0px; right:10px;">
+    <img id="wc1" src="wordclouds/wordCloud1_anatfilter.png" style="height: 100%; position: absolute; bottom: 5px; right:10px;">
+    <img id="wc2" src="wordclouds/wordCloud2_anatfilter.png" style="height: 100%; position: absolute; bottom: 5px; right:10px;">
+    <img id="wc3" src="wordclouds/wordCloud3_anatfilter.png" style="height: 100%; position: absolute; bottom: 5px; right:10px;">
 </div>
 
 <button class="collapsible">Associated Studies</button>
@@ -116,7 +124,8 @@
 </div>
 
 <div class="searcher">
-    <input id="searcher_input" type="text" placeholder="Search keyword ...">
+    <input id="searcher_input" type="text" placeholder="Search term ...">
+    <button id="searchGo" onclick="GoClick()">Go</button>
 </div>
 
 <script type="text/javascript">
@@ -159,6 +168,11 @@
         }
     });
 
+    function GoClick(){
+        try {switchOverlay(document.getElementById("searcher_input").value);}
+        finally {$("#searcher_input").blur();}
+    }
+
     function switchOverlay(term){
         if (doesFileExist("data/"+term+".png")) {
             if (term.includes("rgbvol")) {
@@ -200,7 +214,7 @@
         } else if (doesFileExist("data/"+term.slice(0,-1)+".png")) {
             viewer.addData(dataviews);
         } else {
-            document.getElementById('dataname').innerHTML = "<div class='opt-header' id='dataname'>Keyword not found<div class='datadesc'></div></div>"
+            document.getElementById('dataname').innerHTML = "<div class='opt-header' id='dataname'>Term not found<div class='datadesc'></div></div>"
             document.getElementById("infotext").innerHTML = "";
         }
     }
