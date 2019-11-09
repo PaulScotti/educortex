@@ -9,7 +9,7 @@
 
 ## Installation
 
-EduCortex can be accessed without installation as an online webviewer, see [EduCortexViewer](https://paulscotti.github.io/EduCortex/).
+EduCortex can be accessed without installation as an online webviewer, see [EduCortexViewer](https://paulscotti.github.io/educortex/).
 
 If you want to use EduCortex locally, take the following steps:
 
