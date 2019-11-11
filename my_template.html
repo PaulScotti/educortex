@@ -174,7 +174,8 @@
         finally {$("#searcher_input").blur();}
     }
 
-    function switchOverlay(term){
+    function switchOverlay(termraw){
+        term = termraw.toLowerCase();
         if (doesFileExist("data/"+term+".png")) {
             if (term.includes("rgbvol")) {
                 $(".wordcloud").show();
