@@ -1,0 +1,8 @@
+pycortex and its associated dependencies (see https://github.com/gallantlab/pycortex)
+numpy
+matplotlib
+pandas
+sklearn
+nibabel
+pickle
+neurosynth
