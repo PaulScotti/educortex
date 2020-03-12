@@ -32,7 +32,7 @@ affiliations:
     index: 1
   - name: University of Wisconsin-Madison, Wisconsin, USA
     index: 2
-  - name: Tel Aviv University, Tel Aviv, Israel
+  - name: University College London, London, UK
     index: 3
   - name: Leiden University, Leiden, Netherlands
     index: 4
