@@ -1,4 +1,4 @@
-# EduCortex
+# EduCortex (v.1.0.0)
 <img src="logo.png" align="center"/>
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
@@ -13,9 +13,11 @@ EduCortex can be accessed without installation as an online webviewer, see [EduC
 
 If you want to use EduCortex locally, take the following steps:
 
-### 1. Setup pycortex (https://github.com/gallantlab/pycortex) and install Python dependencies (see requirements.txt)
+### 1. Install pycortex (https://github.com/gallantlab/pycortex) and other Python dependencies (see requirements.txt)
 
-### 2. Follow steps in runMappingViz.ipynb
+### 2. git clone https://github.com/PaulScotti/educortex
+
+### 3. Follow steps in runMappingViz.ipynb
 
 ## Contributions
 Contributions are welcome, feel free to open an issue or do a pull request. 
