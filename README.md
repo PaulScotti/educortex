@@ -41,7 +41,7 @@ This project repository is set up in the following way:
 - `paper/` contains files used for our manuscript submission to the Journal of Open Source Education (https://jose.theoj.org/)
 
 ## Contributions
-Contributions are welcome, feel free to open an issue or do a pull request. 
+Contributions are welcome, feel free to open an issue or do a pull request. Please use the GitHub issue tracker for filing bugs and asking questions.
 
 ## Authors
 Paul Scotti, Arman Kulkarni, Matan Mazor, Eduard Klapwijk, Tal Yarkoni, Alex Huth
