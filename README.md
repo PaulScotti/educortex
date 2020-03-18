@@ -32,14 +32,13 @@ pip install -r requirements.txt
 
 ## Repository layout
 This project repository is set up in the following way:
-- runMappingViz.ipynb is a Jupyter Notebook that details the steps used to load Neurosynth data and project maps onto fsaverage brain using Pycortex
-- my_template.html is the html template used by runMappingViz.ipynb to add CSS & javascript elements to the Pycortex viewer
-- index.html is the final webpage that hosts the viewer--note that if you create your own index.html via runMappingViz.ipynb, it will lack some features that is contained in the index.html hosted on this github repository (e.g., no welcome pop-up, no enable/disable wordcloud buttons, etc.)
-- 'data/' contains .png files, each of which is a meta-analysis map from Neurosynth which gets projected onto the fsaverage 3D brain in EduCortex
-- 'atlases/' contains 
-- 'wordclouds/' contains annotation files which can be used to create anatomical labels in EduCortex (from Glasser et al. (2016) and Huth et al., (2016))
-- 'PCA/' contains PCA_extraction.ipynb (the code used to create the PCA components across Neurosynth meta-analysis maps) and pngs for the three wordclouds used in EduCortex
-- 'paper/' contains files used for our manuscript submission to the Journal of Open Source Education (https://jose.theoj.org/)
+- `runMappingViz.ipynb` is a Jupyter Notebook that details the steps used to load Neurosynth data and project maps onto fsaverage brain using Pycortex
+- `my_template.html` is the html template used by runMappingViz.ipynb to add CSS & javascript elements to the Pycortex viewer
+- `index.html` is the final webpage that hosts the viewer--note that if you create your own index.html via runMappingViz.ipynb, it will lack some features that is contained in the index.html hosted on this github repository (e.g., no welcome pop-up, no enable/disable wordcloud buttons, etc.)
+- `data/` contains .png files, each of which is a meta-analysis map from Neurosynth which gets projected onto the fsaverage 3D brain in EduCortex
+- `atlases/` contains annotation files which can be used to create anatomical labels in EduCortex (from Glasser et al. (2016) and Huth et al., (2016))
+- `PCA/` contains `PCA_extraction.ipynb` (the code used to create the PCA components across Neurosynth meta-analysis maps) and pngs for the three wordclouds used in EduCortex
+- `paper/` contains files used for our manuscript submission to the Journal of Open Source Education (https://jose.theoj.org/)
 
 ## Contributions
 Contributions are welcome, feel free to open an issue or do a pull request. 
