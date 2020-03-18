@@ -10,3 +10,6 @@ sklearn
 scikit-learn
 scikit-optimize
 scipy
+setuptools
+wheel
+cython
