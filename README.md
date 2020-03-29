@@ -2,6 +2,8 @@
 <img src="logo.png" align="center"/>
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=1.1&x2=0)](https://github.com/PaulScotti/educortex/releases/tag/v1.1)
+[![DOI](https://jose.theoj.org/papers/10.21105/jose.00075/status.svg)](https://doi.org/10.21105/jose.00075)
 
 ## Overview
 
