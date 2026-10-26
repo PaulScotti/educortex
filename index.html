@@ -2857,8 +2857,6 @@ if(this.$element.prop("multiple"))this.current(function(d){var e=[];a=[a],a.push
 },e.prototype.render=function(){var b=a('<span class="select2 select2-container"><span class="selection"></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>');return b.attr("dir",this.options.get("dir")),this.$container=b,this.$container.addClass("select2-container--"+this.options.get("theme")),b.data("element",this.$element),b},e}),b.define("jquery-mousewheel",["jquery"],function(a){return a}),b.define("jquery.select2",["jquery","jquery-mousewheel","./select2/core","./select2/defaults"],function(a,b,c,d){if(null==a.fn.select2){var e=["open","close","destroy"];a.fn.select2=function(b){if(b=b||{},"object"==typeof b)return this.each(function(){var d=a.extend(!0,{},b);new c(a(this),d)}),this;if("string"==typeof b){var d,f=Array.prototype.slice.call(arguments,1);return this.each(function(){var c=a(this).data("select2");null==c&&window.console&&console.error&&console.error("The select2('"+b+"') method was called on an element that is not using Select2."),d=c[b].apply(c,f)}),a.inArray(b,e)>-1?this:d}throw new Error("Invalid arguments for Select2: "+b)}}return null==a.fn.select2.defaults&&(a.fn.select2.defaults=d),c}),{define:b.define,require:b.require}}(),c=b.require("jquery.select2");return a.fn.select2.amd=b,c});</script>
 <script type="text/javascript">// File:src/Three.js
 
-// load associations json
-var associations = $.getJSON("https://paulscotti.github.io/educortex/assocations.json")
 
 /**
  * @author mrdoob / http://mrdoob.com/
@@ -57579,102 +57577,149 @@ document.getElementById('dataname').innerHTML = "<div class='opt-header' id='dat
 document.getElementById("infotext").innerHTML = "";
 }
 }
-function pullKeywords(x,y,z){
-document.getElementById("infoheader").innerHTML = "Associated Terms" // (z-score)
-document.getElementById("infotext").innerHTML = "Loading from NeuroSynth... (if no response try clicking elsewhere)";
-origin = [45, 63, 36];
-newx = (origin[0]-x)*2;
-newy = (y-origin[1])*2;
-newz = (z-origin[2])*2;
-newx = Math.round(newx / 5) * 5
-newy = Math.round(newy / 5) * 5
-newz = Math.round(newz / 5) * 5
-if (newz > 65) {
-	newz = 65;
-}
-console.log(newx,newy,newz);
-document.querySelector("#dataname").innerText = newx+", "+newy+", "+newz;
-var stri = "";
-var ns_terms = associations['responseJSON']["x"+newx+"y"+newy+"z"+newz]
-	if (ns_terms!=undefined) {
-		for (i=0; i<ns_terms.length; i++){
-			if (no_anats.includes(ns_terms[i])) {
-				stri = stri.concat(String.raw`<a href="javascript:switchOverlay('`);
-				stri = stri.concat(ns_terms[i]);
-				stri = stri.concat(String.raw`');">`);
-				stri = stri.concat(ns_terms[i]);
-				// stri = stri.concat(" ("+b.data[keylist[i][1]][1]+")")
-				stri = stri.concat("</a><br>");
-			}
-		}
-		document.getElementById("infotext").innerHTML = stri;
-	}
-}
-// $.getJSON("https://neurosynth.org/api/locations/compare/?x="+newx+"&y="+newy+"&z="+newz+"&r=6", function( data ) {
-// b = data;
-// keylist = []; keylist.sortIndices = [];
-// for (i=0; i<1335; i++){
-// keylist[i] = [b.data[i][1], i];
-// keylist.sort();
-// }
-// keylist.reverse();
-// for (i=0; i<20; i++){
-// if (b.data[keylist[i][1]][1] <= 0) {
-// } else if (typeof(b.data[keylist[i][1]]) !== "undefined") {
-// if (no_anats.includes(b.data[keylist[i][1]][0])) {
-// stri = stri.concat(String.raw`<a href="javascript:switchOverlay('`);
-// stri = stri.concat(b.data[keylist[i][1]][0]);
-// stri = stri.concat(String.raw`');">`);
-// stri = stri.concat(b.data[keylist[i][1]][0]);
-// stri = stri.concat(" ("+b.data[keylist[i][1]][1]+")")
-// stri = stri.concat("</a><br>");
-// }
-// }
-// }
-// });
+// Keep these lookups in sync in index.html and my_template.html.
+var associations;
+var keywordLookupId = 0;
+var studyLookupId = 0;
+var studyRequests = [];
+var lookupTimeout = 15000;
 
-function pullStudies(x,y,z){
-document.getElementById("collapse_text").innerHTML = "Loading from NeuroSynth...";
-origin = [45, 63, 36];
-newx = (origin[0]-x)*2;
-newy = (y-origin[1])*2;
-newz = (z-origin[2])*2;
-console.log(newx,newy,newz);
-var stri = "";
-$.getJSON( "https://neurosynth.org/api/locations/"+newx+"_"+newy+"_"+newz+"_6/studies/", function( data ) {
-for (i=0; i<10; i++){
-if (typeof(data.data) !== "undefined") {
-$.getJSON("https://neurosynth.org/api/studies/?pmid=" + data.data[i].pmid + "&retmode=json", function (datum) {
-stri = stri.concat(String.raw`<a href=https://doi.org/`);
-stri = stri.concat(datum.data[0].doi);
-stri = stri.concat(String.raw` target="_blank"`);
-stri = stri.concat(String.raw`>`);
-stri = stri.concat(datum.data[0].title);
-stri = stri.concat("</a><br><br>");
-document.getElementById("collapse_text").innerHTML = stri;
-});
+function loadAssociations() {
+    if (!associations || associations.state() === "rejected") {
+        associations = $.ajax({
+            url: "./assocations.json",
+            dataType: "json",
+            timeout: lookupTimeout
+        });
+    }
+    return associations;
 }
+
+function pullKeywords(x, y, z) {
+    var lookupId = ++keywordLookupId;
+    var panel = $("#infotext");
+    var errorMessage = "Could not load associated terms. Click the brain to try again.";
+    var newx = Math.round(((45 - x) * 2) / 5) * 5;
+    var newy = Math.round(((y - 63) * 2) / 5) * 5;
+    var newz = Math.min(65, Math.round(((z - 36) * 2) / 5) * 5);
+    var key = "x" + newx + "y" + newy + "z" + newz;
+
+    $("#infoheader").text("Associated Terms");
+    $("#dataname").text(newx + ", " + newy + ", " + newz);
+    panel.text("Loading associated terms...");
+
+    loadAssociations().done(function(data) {
+        if (lookupId !== keywordLookupId) return;
+        if (!$.isPlainObject(data) || (data[key] != null && !Array.isArray(data[key]))) {
+            associations = null;
+            panel.text(errorMessage);
+            return;
+        }
+
+        var terms = (data[key] || []).filter(function(term) {
+            return typeof term === "string" && no_anats.includes(term);
+        });
+        panel.empty();
+        if (!terms.length) {
+            panel.text("No saved associated terms for this location.");
+            return;
+        }
+        terms.forEach(function(term) {
+            $("<a>").attr("href", "#").text(term).on("click", function(event) {
+                event.preventDefault();
+                switchOverlay(term);
+            }).appendTo(panel);
+            panel.append("<br>");
+        });
+    }).fail(function() {
+        if (lookupId === keywordLookupId) panel.text(errorMessage);
+    });
 }
-// var id1 = data.data[1].pmid;
-// $.getJSON("http://neurosynth.org:80/api/studies/?pmid=" + id1 + "&retmode=json", function (datum) {
-// stri = stri.concat(datum.data[0].title);
-// stri = stri.concat("<br><br>");
-// document.getElementById("collapse_text").innerHTML = stri;
-// });
-// var id2 = data.data[2].pmid;
-// $.getJSON("http://neurosynth.org:80/api/studies/?pmid=" + id2 + "&retmode=json", function (datum) {
-// stri = stri.concat(datum.data[0].title);
-// stri = stri.concat("<br><br>");
-// document.getElementById("collapse_text").innerHTML = stri;
-// });
-// var id3 = data.data[3].pmid;
-// $.getJSON("http://neurosynth.org:80/api/studies/?pmid=" + id3 + "&retmode=json", function (datum) {
-// stri = stri.concat(datum.data[0].title);
-// stri = stri.concat("<br><br>");
-// document.getElementById("collapse_text").innerHTML = stri;
-// });
-});
+
+function pullStudies(x, y, z) {
+    var lookupId = ++studyLookupId;
+    var panel = $("#collapse_text");
+    var errorMessage = "Could not load associated studies. Click the brain to try again.";
+    var newx = (45 - x) * 2;
+    var newy = (y - 63) * 2;
+    var newz = (z - 36) * 2;
+
+    studyRequests.forEach(function(request) { request.abort(); });
+    studyRequests = [];
+    panel.text("Loading studies from Neurosynth...");
+
+    var locationsRequest = $.ajax({
+        url: "https://neurosynth.org/api/locations/" + newx + "_" + newy + "_" + newz + "_6/studies/",
+        dataType: "json",
+        timeout: lookupTimeout
+    }).done(function(data) {
+        if (lookupId !== studyLookupId) return;
+        if (!data || !Array.isArray(data.data)) {
+            panel.text(errorMessage);
+            return;
+        }
+        var studies = data.data.filter(function(study) {
+            return study && study.pmid;
+        }).slice(0, 10);
+        if (!studies.length) {
+            panel.text("No associated studies found for this location.");
+            return;
+        }
+
+        var results = new Array(studies.length);
+        var remaining = studies.length;
+        function renderStudies() {
+            if (lookupId !== studyLookupId) return;
+            var loaded = 0;
+            panel.empty();
+            results.forEach(function(result) {
+                if (!result) return;
+                loaded++;
+                $("<a>").attr({
+                    href: result.url,
+                    target: "_blank",
+                    rel: "noopener noreferrer"
+                }).text(result.title).appendTo(panel);
+                panel.append("<br><br>");
+            });
+            if (remaining) {
+                panel.append(document.createTextNode("Loading studies from Neurosynth..."));
+            } else if (!loaded) {
+                panel.text(errorMessage);
+            } else if (loaded < studies.length) {
+                panel.append(document.createTextNode("Some studies could not be loaded. Click the brain to try again."));
+            }
+        }
+
+        studies.forEach(function(study, index) {
+            var request = $.ajax({
+                url: "https://neurosynth.org/api/studies/?pmid=" + encodeURIComponent(study.pmid) + "&retmode=json",
+                dataType: "json",
+                timeout: lookupTimeout
+            }).done(function(datum) {
+                if (lookupId !== studyLookupId) return;
+                var detail = datum && Array.isArray(datum.data) && datum.data[0];
+                if (!detail || typeof detail.title !== "string" || !detail.title.trim()) return;
+                var doi = typeof detail.doi === "string" ? detail.doi.trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, "") : "";
+                results[index] = {
+                    title: detail.title,
+                    url: doi ? "https://doi.org/" + doi : "https://pubmed.ncbi.nlm.nih.gov/" + encodeURIComponent(study.pmid) + "/"
+                };
+            }).always(function() {
+                remaining--;
+                renderStudies();
+            });
+            studyRequests.push(request);
+        });
+    }).fail(function() {
+        if (lookupId === studyLookupId) panel.text(errorMessage);
+    });
+    studyRequests.push(locationsRequest);
 }
+
+// Start the download before the first click; failed requests retry on the next click.
+loadAssociations();
+
 var coll = document.getElementsByClassName("collapsible");
 for (i = 0; i < coll.length; i++) {
 coll[i].addEventListener("click", function() {
